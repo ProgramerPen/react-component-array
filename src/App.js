@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Heading from "./components/heading.jsx";
+import Footer from "./components/footer.jsx";
+import Note from "./components/note.jsx";
+import notes from "./components/notes";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div> <Heading />
+    {/*  mapping into notes array  */}
+      {notes.map((note =>
+    //render each note in the array with below data and pass it to Note component
+    <Note 
+      key = {note.key}   
+      hdg = {note.title}
+      cnt = {note.content}
+    />
+  
+       ))};
+        
+    <Footer /></div>
+    
   );
 }
 
